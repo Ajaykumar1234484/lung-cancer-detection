@@ -2,8 +2,8 @@ services:
   - type: web
     name: lung-cancer-backend
     env: docker
-    dockerContext: .
-    dockerfilePath: backend/Dockerfile
+    dockerContext: lung-cancer-detection
+    dockerfilePath: lung-cancer-detection/backend/Dockerfile
     plan: free
     region: ohio
 
@@ -14,8 +14,8 @@ services:
   - type: web
     name: lung-cancer-frontend
     runtime: static
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
+    buildCommand: cd lung-cancer-detection/frontend && npm install && npm run build
+    staticPublishPath: lung-cancer-detection/frontend/dist
 
     envVars:
       - key: VITE_API_URL
