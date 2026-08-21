@@ -1,4 +1,5 @@
 services:
+
   # Backend Web Service
   - type: web
     name: lung-cancer-backend
@@ -7,20 +8,21 @@ services:
     dockerfilePath: backend/Dockerfile
     plan: free
     region: ohio
+
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
 
   # Frontend Static Site
-- type: web
-  name: lung-cancer-frontend
-  runtime: static
-  buildCommand: cd frontend && npm install && npm run build
-  staticPublishPath: frontend/dist
-  region: ohio
-  envVars:
-    - key: VITE_API_URL
-      fromService:
-        type: web
-        name: lung-cancer-backend
-        property: url
+  - type: static_site
+    name: lung-cancer-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    region: ohio
+
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: lung-cancer-backend
+          property: url
