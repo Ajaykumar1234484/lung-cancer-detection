@@ -1,0 +1,30 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: lung-cancer-backend
+    env: docker
+    dockerContext: .
+    dockerfilePath: backend/Dockerfile
+    plan: free
+    region: ohio
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+
+  # Frontend Static Site
+  - type: static
+    name: lung-cancer-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    publishDir: frontend/dist
+    region: ohio
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: lung-cancer-backend
+          property: url
+    headers:
+      - path: /*
+        name: Access-Control-Allow-Origin
+        value: "*"

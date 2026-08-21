@@ -1,0 +1,143 @@
+.treatment-progress-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  border: 1px solid #eef2f7;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.treatment-progress-card h2 {
+  margin-top: 0;
+  color: #1a202c;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #f7fafc;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.progress-analysis-row {
+  margin-bottom: 1.5rem;
+}
+
+.progress-label {
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  background: #f7fafc;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.cancer-text {
+  margin-right: 1rem;
+  font-weight: bold;
+  color: #2d3748;
+  width: 60px;
+}
+
+.ascii-bar {
+  color: #3182ce;
+  letter-spacing: 1px;
+  flex-grow: 1;
+}
+
+.percentage-text {
+  margin-left: 1rem;
+  font-weight: bold;
+  color: #2d3748;
+  min-width: 45px;
+  text-align: right;
+}
+
+.comparison-divider {
+  height: 1px;
+  background: #edf2f7;
+  margin: 1.5rem 0;
+}
+
+.improvement-section {
+  background: #f0fff4;
+  padding: 1.25rem;
+  border-radius: 10px;
+  border-left: 4px solid #48bb78;
+}
+
+.improvement-row, .status-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.status-row {
+  margin-bottom: 0;
+}
+
+.improvement-section .icon {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+}
+
+.improvement-section .label {
+  font-weight: 500;
+  color: #2d3748;
+  margin-right: 0.5rem;
+}
+
+.improvement-section .value {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.value.success {
+  color: #2f855a;
+}
+
+.value.warning {
+  color: #c53030;
+}
+
+.status-text {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.card-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.reset-btn {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e0;
+  color: #4a5568;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  background: #f7fafc;
+  border-color: #a0aec0;
+  transform: translateY(-1px);
+}
+
+.animate-in {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Full App (Backend + Frontend)",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}/frontend",
+            "presentation": {
+                "group": "app",
+                "order": 2
+            },
+            "preLaunchTask": "Start Backend"
+        },
+        {
+            "name": "Backend (FastAPI)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "app.py",
+            "cwd": "${workspaceFolder}/backend",
+            "python": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+            "console": "integratedTerminal",
+            "presentation": {
+                "group": "app",
+                "order": 1
+            }
+        }
+    ]
+}
