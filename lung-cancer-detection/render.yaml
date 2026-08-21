@@ -12,19 +12,15 @@ services:
         value: "1"
 
   # Frontend Static Site
-  - type: static
-    name: lung-cancer-frontend
-    env: static
-    buildCommand: cd frontend && npm install && npm run build
-    publishDir: frontend/dist
-    region: ohio
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: lung-cancer-backend
-          property: url
-    headers:
-      - path: /*
-        name: Access-Control-Allow-Origin
-        value: "*"
+- type: web
+  name: lung-cancer-frontend
+  runtime: static
+  buildCommand: cd frontend && npm install && npm run build
+  staticPublishPath: frontend/dist
+  region: ohio
+  envVars:
+    - key: VITE_API_URL
+      fromService:
+        type: web
+        name: lung-cancer-backend
+        property: url
