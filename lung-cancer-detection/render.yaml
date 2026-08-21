@@ -6,6 +6,7 @@ services:
     dockerfilePath: backend/Dockerfile
     plan: free
     region: ohio
+
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
@@ -15,10 +16,10 @@ services:
     runtime: static
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
-    region: ohio
+
     envVars:
       - key: VITE_API_URL
         fromService:
           type: web
           name: lung-cancer-backend
-          property: url
+          property: host
